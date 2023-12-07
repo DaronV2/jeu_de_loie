@@ -5,17 +5,21 @@ import java.util.Random;
 public class App {
     
     public static void main(String[] args) {
-        Random generateur = new Random();
+        Random generateur = new Random(); 
         int nbreDeCasesRest = 20;
         int caseEndroit = 0;
         for(int i = 1; i <= 5; i++){
             int lancer = generateur.nextInt(6) + 1;
-            caseEndroit += lancer;
-            nbreDeCasesRest = nbreDeCasesRest - lancer;
+            
+            /*caseEndroit += lancer;
+            nbreDeCasesRest = nbreDeCasesRest - lancer;*/
+
+            caseEndroit = lancer(caseEndroit, lancer);
+            nbreDeCasesRest -= lancer;
             System.out.println("Lancer "+ i +" : Vous avez fait " + lancer + ". Vous etes sur la case " + caseEndroit + " (encore " + nbreDeCasesRest + " cases)" );
         }
         perduGagne(nbreDeCasesRest);
-        
+
         /*if (nbreDeCasesRest != 0){
             System.out.println("Vous avez perdu ! ");
         }else{
@@ -29,5 +33,10 @@ public class App {
         }else{
             System.out.println("Vous avez gagné ! ");
         }
+    }
+
+    public static int lancer(int caseActu, int lancer){
+        caseActu += lancer;
+        return caseActu;    
     }
 }
