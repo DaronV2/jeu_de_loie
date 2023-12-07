@@ -14,12 +14,20 @@ public class App {
             nbreDeCasesRest = nbreDeCasesRest - lancer;
             System.out.println("Lancer "+ i +" : Vous avez fait " + lancer + ". Vous etes sur la case " + caseEndroit + " (encore " + nbreDeCasesRest + " cases)" );
         }
-        if (nbreDeCasesRest != 0){
+        perduGagne(nbreDeCasesRest);
+        
+        /*if (nbreDeCasesRest != 0){
+            System.out.println("Vous avez perdu ! ");
+        }else{
+            System.out.println("Vous avez gagné ! ");
+        }*/
+
+    }
+    public static void perduGagne( int gagne){
+        if (gagne != 0){
             System.out.println("Vous avez perdu ! ");
         }else{
             System.out.println("Vous avez gagné ! ");
         }
-
     }
-    
 }
