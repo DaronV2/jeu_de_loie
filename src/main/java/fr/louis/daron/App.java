@@ -10,13 +10,13 @@ public class App {
         int caseEndroit = 0;
         for(int i = 1; i <= 5; i++){
             int lancer = generateur.nextInt(6) + 1;
+            caseEndroit = lancer(caseEndroit, nbreDeCasesRest,i,lancer);
+            nbreDeCasesRest = nbreDeCasesRest -lancer;
             
-            /*caseEndroit += lancer;
-            nbreDeCasesRest = nbreDeCasesRest - lancer;*/
-
-            caseEndroit = lancer(caseEndroit, lancer);
-            nbreDeCasesRest -= lancer;
-            System.out.println("Lancer "+ i +" : Vous avez fait " + lancer + ". Vous etes sur la case " + caseEndroit + " (encore " + nbreDeCasesRest + " cases)" );
+            /*int lancer = generateur.nextInt(6) + 1;
+            caseEndroit += lancer;
+            nbreDeCasesRest = nbreDeCasesRest - lancer;
+            System.out.println("Lancer "+ i +" : Vous avez fait " + lancer + ". Vous etes sur la case " + caseEndroit + " (encore " + nbreDeCasesRest + " cases)" );*/
         }
         perduGagne(nbreDeCasesRest);
 
@@ -35,8 +35,10 @@ public class App {
         }
     }
 
-    public static int lancer(int caseActu, int lancer){
+    public static int lancer(int caseActu,int nbreDeCasesRest,int i,int lancer){
         caseActu += lancer;
+        nbreDeCasesRest -= lancer;
+        System.out.println("Lancer "+ i +" : Vous avez fait " + lancer + ". Vous etes sur la case " + caseActu + " (encore " + nbreDeCasesRest + " cases)" );
         return caseActu;    
     }
 }
